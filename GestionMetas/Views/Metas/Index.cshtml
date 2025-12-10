@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GestionMetas.Models.Meta>
+
+@{
+    ViewData["Title"] = "Metas";
+}
+
+<h1>Metas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva meta</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Categoría</th>
+            <th>Prioridad</th>
+            <th>Estado</th>
+            <th>Fecha límite</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Categoria</td>
+                <td>@item.Prioridad</td>
+                <td>@item.Estado</td>
+                <td>@item.FechaLimite?.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

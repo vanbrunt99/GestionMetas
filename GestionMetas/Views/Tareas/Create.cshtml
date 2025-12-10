@@ -1,0 +1,55 @@
+﻿@model GestionMetas.Models.Tarea
+
+@{
+    ViewData["Title"] = "Crear tarea";
+}
+
+<h1>Crear tarea</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Descripcion" class="control-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MetaId" class="control-label">Meta</label>
+        <select asp-for="MetaId" class="form-control"
+                asp-items="ViewBag.MetaId"></select>
+        <span asp-validation-for="MetaId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaLimite" class="control-label"></label>
+        <input asp-for="FechaLimite" class="form-control" type="date" />
+        <span asp-validation-for="FechaLimite" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Estado" class="control-label"></label>
+        <select asp-for="Estado" class="form-control"
+                asp-items="Html.GetEnumSelectList<GestionMetas.Models.EstadoTarea>()"></select>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Dificultad" class="control-label"></label>
+        <select asp-for="Dificultad" class="form-control"
+                asp-items="Html.GetEnumSelectList<GestionMetas.Models.Dificultad>()"></select>
+        <span asp-validation-for="Dificultad" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TiempoEstimado" class="control-label"></label>
+        <input asp-for="TiempoEstimado" class="form-control" />
+        <span asp-validation-for="TiempoEstimado" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

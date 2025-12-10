@@ -1,0 +1,43 @@
+﻿@model IEnumerable<GestionMetas.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Tareas";
+}
+
+<h1>Tareas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nueva tarea</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Meta</th>
+            <th>Estado</th>
+            <th>Dificultad</th>
+            <th>Fecha límite</th>
+            <th>Tiempo estimado (h)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Descripcion</td>
+                <td>@item.Meta?.Titulo</td>
+                <td>@item.Estado</td>
+                <td>@item.Dificultad</td>
+                <td>@item.FechaLimite?.ToShortDateString()</td>
+                <td>@item.TiempoEstimado</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

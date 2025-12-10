@@ -1,0 +1,81 @@
+﻿@model GestionMetas.Models.Meta
+
+@{
+    ViewData["Title"] = "Detalles de la meta";
+}
+
+<h1>Detalles de la meta</h1>
+
+<div>
+    <h4>@Model.Titulo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Categoría</dt>
+        <dd class="col-sm-10">@Model.Categoria</dd>
+
+        <dt class="col-sm-2">Prioridad</dt>
+        <dd class="col-sm-10">@Model.Prioridad</dd>
+
+        <dt class="col-sm-2">Estado</dt>
+        <dd class="col-sm-10">@Model.Estado</dd>
+
+        <dt class="col-sm-2">Fecha límite</dt>
+        <dd class="col-sm-10">@Model.FechaLimite?.ToShortDateString()</dd>
+
+        <dt class="col-sm-2">Descripción</dt>
+        <dd class="col-sm-10">@Model.Descripcion</dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</p>
+<hr />
+<h2>Tareas de esta meta</h2>
+
+<p>
+    <a asp-controller="Tareas"
+       asp-action="Create"
+       asp-route-metaId="@Model.Id"
+       class="btn btn-success">
+        Agregar tarea a esta meta
+    </a>
+</p>
+
+@if (Model.Tareas == null || !Model.Tareas.Any())
+{
+    <p>No hay tareas registradas para esta meta.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Descripción</th>
+                <th>Estado</th>
+                <th>Dificultad</th>
+                <th>Fecha límite</th>
+                <th>Tiempo estimado (h)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model.Tareas)
+            {
+                <tr>
+                    <td>@t.Descripcion</td>
+                    <td>@t.Estado</td>
+                    <td>@t.Dificultad</td>
+                    <td>@t.FechaLimite?.ToShortDateString()</td>
+                    <td>@t.TiempoEstimado</td>
+                    <td>
+                        <a asp-controller="Tareas" asp-action="Edit" asp-route-id="@t.Id">Editar</a> |
+                        <a asp-controller="Tareas" asp-action="Details" asp-route-id="@t.Id">Detalles</a> |
+                        <a asp-controller="Tareas" asp-action="Delete" asp-route-id="@t.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

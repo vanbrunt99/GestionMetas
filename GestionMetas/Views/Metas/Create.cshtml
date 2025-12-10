@@ -1,0 +1,51 @@
+﻿@model GestionMetas.Models.Meta
+
+@{
+    ViewData["Title"] = "Crear meta";
+}
+
+<h1>Crear meta</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Titulo" class="control-label"></label>
+        <input asp-for="Titulo" class="form-control" />
+        <span asp-validation-for="Titulo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Descripcion" class="control-label"></label>
+        <textarea asp-for="Descripcion" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Categoria" class="control-label"></label>
+        <select asp-for="Categoria" class="form-control"
+                asp-items="Html.GetEnumSelectList<GestionMetas.Models.Categoria>()"></select>
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="FechaLimite" class="control-label"></label>
+        <input asp-for="FechaLimite" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Prioridad" class="control-label"></label>
+        <select asp-for="Prioridad" class="form-control"
+                asp-items="Html.GetEnumSelectList<GestionMetas.Models.Prioridad>()"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Estado" class="control-label"></label>
+        <select asp-for="Estado" class="form-control"
+                asp-items="Html.GetEnumSelectList<GestionMetas.Models.EstadoMeta>()"></select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

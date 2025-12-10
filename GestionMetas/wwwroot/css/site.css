@@ -1,0 +1,164 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* ============================
+   Tema oscuro ejecutivo
+   ============================ */
+
+body {
+    background-color: #020617; /* casi negro, azul muy oscuro */
+    color: #e5e7eb; /* gris muy claro */
+}
+
+main {
+    min-height: 70vh;
+}
+
+/* Barra de navegación y footer */
+
+.navbar {
+    background-color: #020617;
+    border-bottom: 1px solid #1f2937;
+}
+
+.footer {
+    background-color: #020617;
+    border-top: 1px solid #1f2937;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #e5e7eb;
+}
+
+    .navbar-brand:hover {
+        color: #38bdf8;
+    }
+
+.navbar .nav-link {
+    color: #e5e7eb !important;
+    font-weight: 500;
+}
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+        color: #38bdf8 !important; /* celeste fino */
+    }
+
+/* Dashboard de inicio */
+
+.dashboard {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.dashboard-header .lead {
+    color: #9ca3af;
+}
+
+.dashboard-card {
+    background: radial-gradient(circle at top left, #111827, #020617);
+    border: 1px solid #1f2937;
+    border-radius: 0.75rem;
+}
+
+    .dashboard-card .card-body {
+        padding: 1.75rem;
+    }
+
+    .dashboard-card h2 {
+        color: #e5e7eb;
+    }
+
+    .dashboard-card p {
+        color: #9ca3af;
+    }
+
+/* Botones */
+
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+    .btn-primary:hover {
+        background-color: #1d4ed8;
+        border-color: #1d4ed8;
+    }
+
+.btn-outline-light {
+    color: #e5e7eb;
+    border-color: #4b5563;
+}
+
+    .btn-outline-light:hover {
+        background-color: #e5e7eb;
+        color: #020617;
+    }
+
+/* Tablas */
+
+.table {
+    color: #e5e7eb;
+}
+
+    .table thead {
+        background-color: #020617;
+    }
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    --bs-table-accent-bg: #020617;
+    background-color: #020617;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #0b1120;
+}
+
+.table tbody tr:hover {
+    background-color: #111827;
+}
+
+/* Formularios */
+
+.form-control,
+.form-select {
+    background-color: #020617;
+    color: #e5e7eb;
+    border-color: #374151;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        background-color: #020617;
+        color: #e5e7eb;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 0.15rem rgba(56, 189, 248, 0.25);
+    }
+
+/* Textos tenues sobre fondo oscuro */
+
+.text-muted {
+    color: #9ca3af !important;
+}
